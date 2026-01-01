@@ -376,49 +376,9 @@
   }
 }
 
-.introduction-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 3rem;
-}
-
 .introduction-container {
   width: 70%;
   color: white;
-}
-
-.descriptionbar-container {
-  height: 1rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top-right-radius: .8rem;
-  border-top-left-radius: .8rem;
-  padding: .9rem;
-  font-weight: bolder;
-  transition: all ease .1ms;
-}
-
-.descriptionbar-container>span:first-of-type svg {
-  margin: 0 .2em;
-  border-radius: 50%;
-}
-
-.descriptionbar-container>span:first-of-type svg:first-of-type {
-  background-color: #f86a6a;
-  color: #f86a6a;
-}
-
-.descriptionbar-container>span:first-of-type svg:nth-of-type(2) {
-  background-color: orange;
-  color: orange;
-}
-
-.descriptionbar-container>span:first-of-type svg:nth-of-type(3) {
-  background-color: green;
-  color: green;
 }
 
 .darkmode .descriptionbar-container {
@@ -437,21 +397,17 @@
   transition: all ease .1ms;
 }
 
+/* hey */
 .darkmode .selfdescription-section {
-  background-color: rgba(82, 80, 80, 0.4);
-  color: rgb(201, 198, 198);
-}
-
-.icon {
-  color: rgba(171, 255, 46, .6);
-  font-weight: 500;
-  font-size: 1.3rem;
+  background-color: #52505066;
+  color: #c9c6c6;
 }
 
 .selfdescription-section {
   font-weight: bold;
 }
 
+/* hey */
 
 /* projects page */
 
@@ -751,10 +707,6 @@
 }
 
 @media(max-width: 768px) {
-
-  .introduction-section {
-    display: none;
-  }
 
   .repo-section {
     display: flex;
