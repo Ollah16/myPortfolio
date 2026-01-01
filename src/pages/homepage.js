@@ -1,11 +1,13 @@
-import React from "react";
 import { Container } from "react-bootstrap";
-import MainSection from "../components/homepage/main";
+import Introduction from "../components/Introduction/introduction";
+import HeroSection from "../components/heroSection";
 
 const HomePage = () => {
-
-    return (<Container fluid>
-        <MainSection />
-    </Container >)
+    return (
+        <Container fluid>
+            <HeroSection />
+            <Introduction />
+        </Container >
+    )
 }
 export default HomePage;

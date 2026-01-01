@@ -1,6 +1,5 @@
-import React from 'react'
 import { useThemeContext } from '../../context/themeContext'
-import DescriptionNav from '../descriptionNav';
+import MacNav from '../macNav';
 
 const ProjectDetail = ({ project }) => {
 
@@ -10,7 +9,7 @@ const ProjectDetail = ({ project }) => {
     return (
         <section className={`projectdetail-section ${pageTheme}`}>
 
-            <DescriptionNav size={8} className='projectdescriptionbarstyle' />
+            <MacNav size={8} className='projectdescriptionbarstyle' />
 
             <div className='projectdetail-imagecontainer'>
                 <img src={image} alt='...' loading='eager' />
