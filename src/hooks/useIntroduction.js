@@ -6,14 +6,10 @@ const FIRST_INTRO = `> self.learnAboutMe( );\nPress Enter to see what I am about
 const TO_REPLACE = "Press Enter to see what I am about.";
 const LOADED_DATA = `Loaded data . . .`;
 const SECOND_INTRO = `
-        \n> self.currentLocation( );
-        ["Dallas, Texas"]
-        \n> self.education( );
-        ["MSc Engineering Management, 2022-2023", "B.Tech Agricultural Engineering, 2012-2020"]
-        \n> self.techStack( );
-        ["HTML", "CSS", "Javascript", "Typescript", "React.js", "Next.js", "Redux", "Jotai", "Tailwind", "Playwright", "Jest", "Node.js", "Git", "GitHub", "Vercel", "Firebase", "AWS", ...rest]
-        \n> self.contactMe( );
-        ["Github","Email"]`
+        \n> self.currentLocation( );\n["Dallas, Texas"]
+        \n> self.education( );\n["MSc Engineering Management, 2022-2023", "B.Tech Agricultural Engineering, 2012-2020"]
+        \n> self.techStack( );\n["HTML", "CSS", "Javascript", "Typescript", "React.js", "Next.js", "Redux", "Jotai", "Tailwind", "Playwright", "Jest", "Node.js", "Git", "GitHub", "Vercel", "Firebase", "AWS", ...rest]
+        \n> self.contactMe( );\n["Github","Email"]`
 
 export const useIntroduction = () => {
 
@@ -32,11 +28,8 @@ export const useIntroduction = () => {
                 }, 50)
             }
         }
-
         handleIntroduction()
-
         return () => clearTimeout(timeOut)
-
     }, [])
 
     useEffect(() => {
