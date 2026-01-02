@@ -1,21 +1,31 @@
-import { createContext, useContext, useState, useMemo, useCallback } from 'react';
+import { createContext, useContext, useState, useMemo, useCallback, useEffect } from 'react';
 
 const PageTheme = createContext();
 
 export const ThemeContext = ({ children }) => {
-    const [pageTheme, setTheme] = useState(() => {
-        const storedTheme = localStorage.getItem('pageTheme');
-        return storedTheme ? storedTheme : 'darkmode';
+    const [currTheme, setCurrentTheme] = useState(() => {
+        const prevTheme = localStorage.getItem('theme');
+        return prevTheme ? prevTheme : 'dark';
     });
 
-    const handleTheme = useCallback(() => {
-        const newTheme = pageTheme === 'lightmode' ? 'darkmode' : 'lightmode';
-        setTheme(newTheme);
-        localStorage.setItem('pageTheme', newTheme);
-    }, [pageTheme]);
+    useEffect(() => {
+        document.documentElement.classList.add(currTheme)
+    }, [])
+
+    const toggleTheme = useCallback(() => {
+        const newTheme = currTheme === 'light' ? 'dark' : 'light';
+        if (currTheme === "light") {
+            document.documentElement.classList.remove("light")
+        } else {
+            document.documentElement.classList.remove("dark")
+        }
+        document.documentElement.classList.add(newTheme)
+        setCurrentTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    }, [currTheme]);
 
 
-    const contextValue = useMemo(() => ({ pageTheme, handleTheme }), [pageTheme, handleTheme]);
+    const contextValue = useMemo(() => ({ currTheme, toggleTheme }), [currTheme, toggleTheme]);
 
     return (
         <PageTheme.Provider value={contextValue}>
