@@ -1,13 +1,11 @@
-import { useThemeContext } from '../context/themeContext'
-import NavBar from '../components/navbar'
 import Footer from '../components/footer'
 import { Outlet } from 'react-router-dom'
 import TrackPage from '../analytics/trackPage'
+import NavBar from '../components/NavBar'
 
 const Layout = () => {
-    const { pageTheme } = useThemeContext()
     return (
-        <div className={`layout ${pageTheme}`}>
+        <div className="bg-[#b6b2b2] dark:bg-[#17212b] dark:text-white text-[rgb(33,33,33)] md:h-full h-dvh flex flex-col gap-16">
             <TrackPage page={"Portfolio"} />
             <NavBar />
             <Outlet />

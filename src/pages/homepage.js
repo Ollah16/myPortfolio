@@ -1,13 +1,12 @@
-import { Container } from "react-bootstrap";
 import Introduction from "../components/Introduction/introduction";
 import HeroSection from "../components/heroSection";
 
 const HomePage = () => {
     return (
-        <Container fluid>
+        <div className="flex flex-col gap-10">
             <HeroSection />
             <Introduction />
-        </Container >
+        </div >
     )
 }
 export default HomePage;
