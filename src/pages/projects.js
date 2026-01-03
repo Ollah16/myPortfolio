@@ -1,5 +1,4 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
+
 import Projects from '../components/project/projects';
 import Header from '../components/header';
 import TrackPage from '../analytics/trackPage';
@@ -10,13 +9,11 @@ const ProjectsPage = () => {
     const p = `Highlights from my projects`
 
     return (
-        <>
+        <div className="flex flex-col gap-10 h-fit">
             <TrackPage page={"Projects"} />
-            <Container fluid>
-                <Header h2={h2} p={p} />
-                <Projects />
-            </Container >
-        </>)
+            <Header h2={h2} p={p} />
+            <Projects />
+        </div>)
 }
 
 export default ProjectsPage

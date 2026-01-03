@@ -24,7 +24,7 @@ const Footer = () => {
     const isEmail = (data) => data.includes("Email")
 
     return (
-        <footer className={'dark:bg-[#030f1c] bg-[#1a1b1b] dark:text-[#ffffffb3] m-0 fixed md:relative w-full bottom-0 flex md:flex-row flex-col gap-2 md:gap-0 justify-evenly md:!p-4 p-2 items-center text-[#ffffffb3]'}>
+        <footer className={'dark:bg-[#030f1c] bg-[#1a1b1b] dark:text-[#ffffffb3] m-0 w-full flex md:flex-row flex-col gap-2 md:gap-0 justify-evenly md:!p-4 p-2 items-center text-[#ffffffb3]'}>
             <div className='flex items-center justify-center'>
                 <FaCode size={19} className={pageTheme === 'lightmode' ?
                     "lightmode-link" : 'darkmode-link me-2'} />

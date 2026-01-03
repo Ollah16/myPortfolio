@@ -1,5 +1,3 @@
-import React from "react";
-import { Container } from "react-bootstrap";
 import RepoLinks from "../components/repo/repoLinks";
 import Header from "../components/header";
 import TrackPage from "../analytics/trackPage";
@@ -11,10 +9,10 @@ const RepositoryPage = () => {
     return (
         <>
             <TrackPage page={"Repositories"} />
-            <Container fluid>
+            <div>
                 <Header h2={h2} />
                 <RepoLinks />
-            </Container>
+            </div>
         </>)
 }
 

@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GrMenu } from "react-icons/gr";
 import NavLinks from "./navLinks";
 import NavBrand from "./navBrand";
 import ThemeToggle from "./themeToggle";
 import DropDownBtn from "./dropDownBtn";
 import DropDownContent from "./dropDownContent";
+import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
 
     const [dropdown, setDropDown] = useState(false)
+
+    const route = useLocation()
+
+    useEffect(() => {
+        return () => setDropDown(false)
+    }, [route])
 
     return (
         <nav className={`px-4 sticky w-full top-0 z-[100] backdrop-blur-lg dark:bg-[#030f1c99] bg-[#41424299] dark:text-white`}>

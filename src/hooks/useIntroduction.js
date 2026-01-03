@@ -55,7 +55,7 @@ export const useIntroduction = () => {
             clearTimeout(timeout)
         }
 
-    }, [setIntroductionHeader, setIntroductionBody, introductionHeader]);
+    }, [introductionHeader]);
 
     const contextValue = useMemo(() => ({ introductionBody, setIntroductionHeader, introductionHeader }), [introductionBody, setIntroductionHeader, introductionHeader]);
 

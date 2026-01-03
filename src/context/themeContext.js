@@ -10,7 +10,7 @@ export const ThemeContext = ({ children }) => {
 
     useEffect(() => {
         document.documentElement.classList.add(currTheme)
-    }, [])
+    }, [currTheme])
 
     const toggleTheme = useCallback(() => {
         const newTheme = currTheme === 'light' ? 'dark' : 'light';
