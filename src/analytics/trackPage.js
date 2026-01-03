@@ -4,7 +4,7 @@ import { trackPage } from './analytics'
 const TrackPage = ({ page }) => {
     useEffect(() => {
         trackPage(page)
-    }, [])
+    }, [page])
 }
 
 export default TrackPage
