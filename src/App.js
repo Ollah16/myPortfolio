@@ -1,5 +1,3 @@
-import './styles/darkmode.css';
-import './styles/lightmode.css'
 import { ThemeContext } from './context/themeContext';
 import Layout from '../src/pages/layout'
 function App() {
