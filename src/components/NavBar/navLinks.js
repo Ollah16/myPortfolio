@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 export const navLinks = [
     { to: "/projects", label: "Projects" },
-    { to: "/repos", label: "Repos" },
+    { to: "/repositories", label: "Repositories" },
 ]
 const NavLinks = ({ className }) => {
     const navClass = `leading-normal after:content-[''] dark:after:bg-white after:bg-black after:inline-block after:absolute after:h-1 after:w-0 after:bottom-0 hover:after:w-full after:transition-left after:duration-100 after:ease relative overflow-hidden py-4 inline-block`
