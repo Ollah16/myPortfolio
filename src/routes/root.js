@@ -1,9 +1,8 @@
-import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import App from '../App'
-import ProjectsPage from '../pages/projects'
-import RepositoryPage from '../pages/repo'
-import HomePage from '../pages/homepage'
+import ProjectPage from '../pages/project'
+import RepositoryPage from '../pages/repository'
+import HomePage from '../pages/introduction'
 
 export const router = createBrowserRouter([
     {
@@ -13,12 +12,12 @@ export const router = createBrowserRouter([
             index: true,
             element: <HomePage />,
         }, {
-            element: <ProjectsPage />,
+            element: <ProjectPage />,
             path: '/projects'
         },
         {
             element: <RepositoryPage />,
-            path: '/repos'
+            path: '/repositories'
         }]
     }
 ])

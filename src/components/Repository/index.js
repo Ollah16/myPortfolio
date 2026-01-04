@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export const loadRepos = () => [
+const repoData = [
     {
         title: 'Bookstore Application',
         link: 'https://github.com/arowoloalao4/bookstore'
@@ -57,15 +57,14 @@ export const loadRepos = () => [
 
 ];
 
-const RepoLinks = () => {
-    const repos = loadRepos()
+const Repository = () => {
 
     return (
-        <section className={'repo-section'}>
+        <section className={'repo-section flex md:flex-row flex-col justify-center flex-wrap md:gap-8 gap-4 p-2'}>
 
-            {repos.map((git, index) => (
-                <Link to={git.link} key={index}>
-                    <span>{git.title}</span>
+            {repoData.map((data, index) => (
+                <Link to={data.link} key={index} className={`font-bold w-full text-xl block dark:hover:shadow-[0px_1px_3px_-1px_rgb(245,245,249)] hover:shadow-[0px_1px_3px_-1px_rgb(24,24,24)] hover:translate-y-[-5px] dark:bg-[#030f1c] bg-white border-[#2c2b2b99] text-black dark:border-[#ffffff33] border dark:text-white md:w-[40%] rounded-lg p-8 transition-all ease-in-out duration-300 no-underline text-center`}>
+                    {data.title}
                 </Link>
             ))}
 
@@ -73,4 +72,4 @@ const RepoLinks = () => {
     )
 }
 
-export default RepoLinks
+export default Repository

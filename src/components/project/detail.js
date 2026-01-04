@@ -4,7 +4,7 @@ import { RiReactjsFill } from 'react-icons/ri';
 
 const ProjectDetail = ({ project, index }) => {
 
-    const { url, name, description } = project
+    const { url, name, description, framework } = project
 
     return (<section className={`lg:w-[50%] text-ellipsis overflow-hidden lg:h-[40%] rounded-none lg:rounded-xl ${index % 2 === 0 ? "lg:left-[-42%] lg:rounded-r-none" : "lg:right-[-42%] lg:rounded-l-none"} group dark:bg-[#030f1c] bg-[white] hover:bg-[#ffffffcc] text-black dark:hover:bg-[#030f1ccc] transition-all ease-in-out duration-150 dark:text-white p-4 lg:absolute relative rounded-none w-full flex h-fit flex-col text-ellipsis cursor-pointer gap-1`}>
 
@@ -18,7 +18,7 @@ const ProjectDetail = ({ project, index }) => {
         </div>
         <div className="flex items-center gap-1">
             <RiReactjsFill className="text-[#61DAFB]" />
-            <span>ReactJS</span>
+            <span>{framework}</span>
         </div>
         <div>
             <p className='text-lg lg:text-sm font-light m-0 leading-normal'>{description}</p>

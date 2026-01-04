@@ -1,4 +1,4 @@
-import RepoLinks from "../components/repo/repoLinks";
+import Repository from "../components/Repository";
 import Header from "../components/header";
 import TrackPage from "../analytics/trackPage";
 
@@ -7,13 +7,11 @@ const RepositoryPage = () => {
     const h2 = "Repositories"
 
     return (
-        <>
+        <div className="flex flex-col gap-10 h-fit">
             <TrackPage page={"Repositories"} />
-            <div>
-                <Header h2={h2} />
-                <RepoLinks />
-            </div>
-        </>)
+            <Header h2={h2} />
+            <Repository />
+        </div>)
 }
 
 export default RepositoryPage

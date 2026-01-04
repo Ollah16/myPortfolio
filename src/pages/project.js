@@ -1,19 +1,18 @@
 
-import Projects from '../components/project/projects';
+import Projects from '../components/Project';
 import Header from '../components/header';
 import TrackPage from '../analytics/trackPage';
 
 
-const ProjectsPage = () => {
-    const h2 = `My projects`
-    const p = `Highlights from my projects`
+const ProjectPage = () => {
+    const h2 = `Project Highlights`
 
     return (
         <div className="flex flex-col gap-10 h-fit">
             <TrackPage page={"Projects"} />
-            <Header h2={h2} p={p} />
+            <Header h2={h2} />
             <Projects />
         </div>)
 }
 
-export default ProjectsPage
+export default ProjectPage
