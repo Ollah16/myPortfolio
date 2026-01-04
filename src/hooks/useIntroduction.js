@@ -57,7 +57,6 @@ export const useIntroduction = () => {
 
     }, [introductionHeader]);
 
-    const contextValue = useMemo(() => ({ introductionBody, setIntroductionHeader, introductionHeader }), [introductionBody, setIntroductionHeader, introductionHeader]);
+    return useMemo(() => ({ introductionBody, setIntroductionHeader, introductionHeader }), [introductionBody, setIntroductionHeader, introductionHeader]);
 
-    return contextValue
 }
