@@ -1,60 +1,58 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 
-const repoData = [
+const REPOSITORIES = [
     {
-        title: 'Bookstore Application',
-        link: 'https://github.com/arowoloalao4/bookstore'
+        title: "Bookstore Platform - Frontend",
+        link: "https://github.com/Ollah16/bookstore",
     },
     {
-        title: 'AI Journey Application',
-        link: 'https://github.com/arowoloalao4/tripbuddy'
+        title: "Bookstore Platform - Backend",
+        link: "https://github.com/Ollah16/bookStoreBackEnd",
     },
     {
-        title: 'Inventory Application',
-        link: 'https://github.com/arowoloalao4/inventoryApp'
+        title: "Inventory Management System - Frontend",
+        link: "https://github.com/Ollah16/app_inventory",
     },
     {
-        title: 'Battery Dashboard',
-        link: 'https://github.com/arowoloalao4/batterydashboard'
+        title: "Inventory Management System - Backend",
+        link: "https://github.com/Ollah16/inventoryBE",
     },
     {
-        title: 'Invoice Application',
-        link: 'https://github.com/arowoloalao4/invoiceapp'
+        title: "Invoice Management System - Frontend",
+        link: "https://github.com/Ollah16/invoice-app",
     },
     {
-        title: 'College Application',
-        link: 'https://github.com/arowoloalao4/schooldashboard'
+        title: "Invoice Management System - Backend",
+        link: "https://github.com/Ollah16/invoiceBackEnd",
     },
     {
-        title: 'Portfolio Application',
-        link: 'https://github.com/arowoloalao4/portfolio'
+        title: "AI Travel Companion (TripPal)",
+        link: "https://github.com/Ollah16/tripbuddy",
     },
     {
-        title: 'School Server',
-        link: 'https://github.com/arowoloalao4/schooldashboardBE'
+        title: "Battery Monitoring Dashboard",
+        link: "https://github.com/Ollah16/batterydashboard",
     },
     {
-        title: 'Inventory Server',
-        link: 'https://github.com/arowoloalao4/inventoryAppBE'
+        title: "Tradex - Crypto Trading Interface",
+        link: "https://github.com/Ollah16/tradeX",
     },
     {
-        title: 'Bookstore Server',
-        link: 'https://github.com/arowoloalao4/bookstoreBE'
+        title: "Tradex - Trading API & Services",
+        link: "https://github.com/Ollah16/tradeXserver",
     },
     {
-        title: 'Invoice Server',
-        link: 'https://github.com/arowoloalao4/invoiceBE'
+        title: "Academic Portal - Frontend",
+        link: "https://github.com/Ollah16/react-school-portal",
     },
     {
-        title: 'Tradex Application',
-        link: 'https://github.com/arowoloalao4/tradex'
+        title: "Academic Portal - Backend Services",
+        link: "https://github.com/Ollah16/reactSchoolAppBackEnd",
     },
     {
-        title: 'Tradex Server',
-        link: 'https://github.com/arowoloalao4/tradexserver'
-    }
-
+        title: "Personal Portfolio Website",
+        link: "https://github.com/Ollah16/myportfolio",
+    },
 ];
 
 const Repository = () => {
@@ -62,8 +60,8 @@ const Repository = () => {
     return (
         <section className={'repo-section flex md:flex-row flex-col justify-center flex-wrap md:gap-8 gap-4 p-2'}>
 
-            {repoData.map((data, index) => (
-                <Link to={data.link} key={index} className={`font-bold w-full text-xl block dark:hover:shadow-[0px_1px_3px_-1px_rgb(245,245,249)] hover:shadow-[0px_1px_3px_-1px_rgb(24,24,24)] hover:translate-y-[-5px] dark:bg-[#030f1c] bg-white border-[#2c2b2b99] text-black dark:border-[#ffffff33] border dark:text-white md:w-[40%] rounded-lg p-8 transition-all ease-in-out duration-300 no-underline text-center`}>
+            {REPOSITORIES.map((data) => (
+                <Link to={data.link} key={data.title} className={`font-bold w-full text-xl block dark:hover:shadow-[0px_1px_3px_-1px_rgb(245,245,249)] hover:shadow-[0px_1px_3px_-1px_rgb(24,24,24)] hover:translate-y-[-5px] dark:bg-[#030f1c] bg-white border-[#2c2b2b99] text-black dark:border-[#ffffff33] border dark:text-white md:w-[40%] rounded-lg p-8 transition-all ease-in-out duration-300 no-underline text-center`}>
                     {data.title}
                 </Link>
             ))}
