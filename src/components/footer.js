@@ -28,7 +28,7 @@ const Footer = () => {
             <div className='flex items-center justify-center'>
                 <FaCode size={19} className={pageTheme === 'lightmode' ?
                     "lightmode-link" : 'darkmode-link me-2'} />
-                <span>Software Engineer</span>
+                <span>Frontend Engineer</span>
             </div>
             <div className='text-[#050a0f] flex items-center justify-center gap-2 md:gap-5 relative'>
                 {links.map((d, index) => {
