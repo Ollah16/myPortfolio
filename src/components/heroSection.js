@@ -1,9 +1,17 @@
-import Header from "./header"
+import Header from "./header";
+
+const HERO_CONTENT = {
+    title: "Hi, I’m Olaoluwa Oke",
+    description:
+        "Frontend Engineer specialising in building fast, accessible, and scalable web applications. I collaborate closely with designers and product teams to transform complex requirements into intuitive, high-quality user experiences.",
+};
 
 const HeroSection = () => {
-    const header = "Hi, I'm Olaoluwa Oke!";
-    const subHeader = "Welcome to my portfolio website! I am a passionate Front End engineer with expertise in HTML, CSS, JavaScript, React and more. I love turning ideas into interactive and user-friendly websites. My commitment is to architect solutions that are not just functional, but intuitively beautiful.";
-    return (<Header h2={header} p={subHeader} />)
-}
+    return (
+        <section aria-label="Introduction">
+            <Header h2={HERO_CONTENT.title} p={HERO_CONTENT.description} />
+        </section>
+    );
+};
 
-export default HeroSection
+export default HeroSection;
