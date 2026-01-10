@@ -7,7 +7,7 @@ const IntroductionContent = () => {
     const splitIntroductionBody = introductionBody?.split('')
 
     return (
-        <section className='overflow-hidden whitespace-pre-wrap min-h-[30rem] transition-[min-height] ease-in-out duration-300 px-2 py-4 font-bold bg-[#52505066] text-[#212121] dark:text-[#c9c6c6] dark:bg-[#222222]'>
+        <section aria-label="profile" className='overflow-hidden whitespace-pre-wrap min-h-[30rem] transition-[min-height] ease-in-out duration-300 px-2 py-4 font-bold bg-[#52505066] text-[#212121] dark:text-[#c9c6c6] dark:bg-[#222222]'>
             <div>
                 {splitIntroductionHeader.map((char, index) => (
                     <span key={index} className={`${char === '>' && 'text-[#abff2e99] font-bold text-lg'}`}>
