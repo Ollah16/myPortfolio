@@ -4,7 +4,7 @@ import TrackPage from "../analytics/trackPage";
 
 
 const RepositoryPage = () => {
-    const h2 = "Repositories"
+    const h2 = "Selected Open-Source Repositories"
 
     return (
         <div className="flex flex-col gap-10 h-fit">
