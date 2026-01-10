@@ -1,5 +1,5 @@
 
-import Projects from '../components/Project';
+import Projects from '../components/project';
 import Header from '../components/header';
 import TrackPage from '../analytics/trackPage';
 
