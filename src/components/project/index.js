@@ -1,103 +1,132 @@
 import MacNav from '../NavBar/macNav';
 import ProjectDetail from './detail';
 import Avatar from './avatar';
+import tradexImage from '../../assets/tradexapp.png';
+import tripPal from '../../assets/journeybuddy.png';
+import inventoryImage from '../../assets/inventorySc.png';
+import bookstoreImage from '../../assets/bookstore.png';
+import collegeImage from '../../assets/schoolapp.png';
+import invoiceImage from '../../assets/invoiceapp.png';
+import portfolioImage from '../../assets/portfolio.png';
+import oneCapImage from '../../assets/onecap.png';
+import batteryDashboardImage from '../../assets/batterydashboard.png';
+import cofounderImage from '../../assets/cofounder.png';
+import cryptoImage from '../../assets/cryptoapp.png';
 
-
-const projectData = [
-    // { name: 'Da-Manager: Pioneering Digital Solutions', url: 'https://da-manager.com' },
-    // { name: 'Medillery: Empowering Designers, Enriching Society', url: 'https://medillery.com' },,
+const PROJECTS = [
     {
         name: 'Tradex',
         url: 'https://trade-x-omega.vercel.app/',
-        description: "Developed a cryptocurrency converter with React.js and Node.js.",
-        image: require('../../assets/tradexapp.png'),
-        framework: "ReactJS",
+        description:
+            'A responsive cryptocurrency conversion platform built with React and Node.js, focusing on real-time data handling, intuitive UI flows, and performance optimisation for fast market lookups.',
+        image: tradexImage,
+        framework: 'ReactJS',
     },
     {
         name: 'TripPal',
         url: 'https://tripbuddy-phi.vercel.app/',
-        description: "A journey AI buddy for children with built with next.js.",
-        image: require('../../assets/journeybuddy.png'),
-        framework: "NextJS",
+        description:
+            'An AI-powered travel companion for children, built with Next.js. Designed accessible, engaging interfaces with server-side rendering for improved performance and SEO.',
+        image: tripPal,
+        framework: 'NextJS',
     },
     {
-        name: 'Inventory',
+        name: 'Inventory Management System',
         url: 'https://inventoryapp-5900c.web.app/',
-        description: "Built an efficient inventory app with React.js, Redux, Node.js, and MongoDB.",
-        image: require('../../assets/inventorySc.png'),
-        framework: "ReactJS",
+        description:
+            'A scalable inventory management application using React, Redux, Node.js, and MongoDB, enabling efficient stock tracking, state-driven UI updates, and reliable data persistence.',
+        image: inventoryImage,
+        framework: 'ReactJS',
     },
     {
-        name: 'Bookstore',
+        name: 'Bookstore Platform',
         url: 'https://bookstoreapp-389b8.web.app',
-        description: 'Performant bookstore app crafted with React.js, Redux, Node.js, MongoDB for seamless book additions.',
-        image: require('../../assets/bookstore.png'),
-        framework: "ReactJS",
+        description:
+            'A performant bookstore application built with React and Redux, featuring seamless product management, efficient state handling, and a responsive, user-friendly shopping experience.',
+        image: bookstoreImage,
+        framework: 'ReactJS',
     },
     {
-        name: 'College',
+        name: 'College Portal',
         url: 'https://school-app-e4abd.web.app',
-        description: 'Developed a scalable college portal with React.js, Redux, Node.js, and MongoDB.',
-        image: require('../../assets/schoolapp.png'),
-        framework: "ReactJS",
+        description:
+            'A scalable college management portal developed with React, Redux, Node.js, and MongoDB, supporting student data management, modular UI components, and role-based workflows.',
+        image: collegeImage,
+        framework: 'ReactJS',
     },
     {
-        name: 'Invoice',
+        name: 'Invoice Management App',
         url: 'https://invoice-app-6a126.web.app',
-        description: 'Built an invoice app with React.js, Redux, Node.js, and MYSQL. Responsive design.',
-        image: require('../../assets/invoiceapp.png'),
-        framework: "ReactJS",
+        description:
+            'A responsive invoice management solution built with React, Redux, Node.js, and MySQL, enabling streamlined billing workflows and consistent cross-device user experiences.',
+        image: invoiceImage,
+        framework: 'ReactJS',
     },
     {
-        name: 'Battery Dashboard',
+        name: 'Battery Analytics Dashboard',
         url: 'https://batterydashboard.vercel.app/',
-        description: 'The dashboard provides real-time battery status, charge level, and historical data visualization using Recharts and Framer Motion for smooth animations.',
-        image: require('../../assets/batterydashboard.png'),
-        framework: "ReactJS",
+        description:
+            'A real-time analytics dashboard displaying battery status and historical trends, built with React, Recharts, and Framer Motion to deliver clear data visualisation and smooth interactions.',
+        image: batteryDashboardImage,
+        framework: 'ReactJS',
     },
     {
-        name: 'Cofounderslab',
+        name: 'CofoundersLab',
         url: 'https://cofounderslab.com/',
-        description: 'Cofounderslab is the largest startup community on the internet that matches builders with cofounders and advisors.',
-        image: require('../../assets/cofounder.png'),
-        framework: "ReactJS",
+        description:
+            'Contributed to a large-scale startup community platform, focusing on frontend feature development, UI consistency, and maintainable component architecture for a global user base.',
+        image: cofounderImage,
+        framework: 'ReactJS',
     },
     {
-        name: 'Quidxai',
+        name: 'QuidxAI',
         url: 'https://quidxai.netlify.app/',
-        description: 'QuidxAi is an innovative AI developed to aid professional and new traders make the best trading and investment decisions.',
-        image: require('../../assets/cryptoapp.png'),
-        framework: "ReactJS",
+        description:
+            'An AI-driven trading assistance platform with a clean, data-focused UI, designed to help users interpret insights efficiently and make informed investment decisions.',
+        image: cryptoImage,
+        framework: 'ReactJS',
     },
     {
-        name: 'Onecap',
+        name: 'OneCap',
         url: 'https://onecap.africa/',
-        description: 'Gamified savings and investment platform',
-        image: require('../../assets/onecap.png'),
-        framework: "ReactJS",
+        description:
+            'A gamified savings and investment platform delivering engaging, user-centric financial experiences through intuitive design and responsive frontend architecture.',
+        image: oneCapImage,
+        framework: 'ReactJS',
     },
     {
-        name: 'Portfolio',
+        name: 'Personal Portfolio',
         url: 'https://myportfolio-8bb3f.web.app',
-        description: 'A standout portfolio developed with React.js, HTML5, and CSS for an engaging user experience.',
-        image: require('../../assets/portfolio.png'),
-        framework: "ReactJS",
+        description:
+            'A personal portfolio website built with React, HTML, and CSS, showcasing projects through a component-driven architecture with a strong focus on performance and user experience.',
+        image: portfolioImage,
+        framework: 'ReactJS',
     },
 ];
 
 const Projects = () => {
 
     return (
-        <section className={`flex flex-col items-center gap-16 px-2 h-fit`}>
-            {projectData.map((project, index) => (
-                <div className={`projectdescription-container lg:w-[50%] w-[80%] h-fit relative flex lg:flex-row flex-col justify-center items-center ${index % 2 === 0 ? "lg:left-[-2%]" : "lg:right-[-2%]"}`} key={index}>
-                    <div className={`p-8 lg:p-14 ${index % 2 === 0 ? "bg-[linear-gradient(45deg,#548a98,#19262c,#627484)]" : "bg-[linear-gradient(45deg,#627484,#19262c,#548a98)]"} rounded-t-xl lg:rounded-xl`}>
-                        <MacNav size={8} className='h-4 px-2 py-2' />
-                        <Avatar project={project} />
-                    </div>
-                    <ProjectDetail project={project} index={index} />
-                </div>
-            ))}
+        <section className={`flex flex-col items-center gap-16 px-2 h-fit`}
+            aria-label="frontend projects"
+        >
+            {PROJECTS.map((project, index) => {
+                const isEven = index % 2 === 0;
+                const containerPosition = isEven ? "lg:left-[-2%]" : "lg:right-[-2%]";
+                const gradient = isEven
+                    ? "bg-[linear-gradient(45deg,#548a98,#19262c,#627484)]"
+                    : "bg-[linear-gradient(45deg,#627484,#19262c,#548a98)]";
+
+                return (
+                    <article className={`lg:w-[50%] w-[80%] h-fit relative flex lg:flex-row flex-col justify-center items-center ${containerPosition}`} key={project.name}>
+                        <div className={`p-8 lg:p-14 ${gradient} rounded-t-xl lg:rounded-xl`}>
+                            <MacNav size={8} className='h-4 px-2 py-2' />
+                            <Avatar project={project} />
+                        </div>
+                        <ProjectDetail project={project} index={index} />
+                    </article>
+                )
+            })}
         </section >
     )
 }
