@@ -1,62 +1,119 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { trackEnter } from "../analytics/analytics";
 
+export const FIRST_INTRO = [
+    "> self.learnAboutMe();",
+    "Press Enter to view profile summary."
+].join("\n");
 
-const FIRST_INTRO = `> self.learnAboutMe( );\nPress Enter to see what I am about.`;
-const TO_REPLACE = "Press Enter to see what I am about.";
-const LOADED_DATA = `Loaded data . . .`;
-const SECOND_INTRO = `
-        \n> self.currentLocation( );\n["Dallas, Texas"]
-        \n> self.education( );\n["MSc Engineering Management, 2022-2023", "B.Tech Agricultural Engineering, 2012-2020"]
-        \n> self.techStack( );\n["HTML", "CSS", "Javascript", "Typescript", "React.js", "Next.js", "Redux", "Jotai", "Tailwind", "Playwright", "Jest", "Node.js", "Git", "GitHub", "Vercel", "Firebase", "AWS", ...rest]
-        \n> self.contactMe( );\n["Github","Email"]`
+const TO_REPLACE = "Press Enter to view profile summary.";
+const LOADED_DATA = "Loading profile . . .\n\n";
+
+export const SECOND_INTRO = [
+    "> self.profile();",
+    '["Frontend Engineer focused on building fast, accessible, and scalable web applications."]',
+    "",
+    "> self.location();",
+    '["London, UK (Remote / European time zones)"]',
+    "",
+    "> self.experience();",
+    '["4+ years building production frontend applications for consumer-facing platforms"]',
+    "",
+    "> self.education();",
+    '["MSc Engineering Management, De Montfort University", "B.Tech Agricultural Engineering"]',
+    "",
+    "> self.coreSkills();",
+    '["TypeScript", "React", "Next.js", "Redux Toolkit", "TanStack Query", "HTML", "CSS", "Accessibility", "Performance Optimisation"]',
+    "",
+    "> self.tooling();",
+    '["Playwright", "Jest", "GitHub Actions", "CI/CD", "Vercel", "Firebase", "Node.js"]',
+    "",
+    "> self.focusAreas();",
+    '["User experience", "Frontend architecture", "Reusable component systems", "Cross-functional collaboration"]',
+    "",
+    "> self.contact();",
+    '["GitHub", "Email"]',
+].join("\n");
+
+
+const TYPING_SPEED = 50;
 
 export const useIntroduction = () => {
+    const [header, setHeader] = useState("");
+    const [body, setBody] = useState("");
+    const headerIndex = useRef(0);
+    const bodyIndex = useRef(0);
+    const hasStartedBody = useRef(false);
 
-    const [introductionHeader, setIntroductionHeader] = useState('')
-    const [introductionBody, setIntroductionBody] = useState('')
-
-    useEffect(() => {
-        let timeOut, start = 0
-
-        const handleIntroduction = () => {
-            if (start < FIRST_INTRO.length) {
-                setIntroductionHeader(prev => prev + FIRST_INTRO[start])
-                timeOut = setTimeout(() => {
-                    start++
-                    handleIntroduction()
-                }, 50)
-            }
-        }
-        handleIntroduction()
-        return () => clearTimeout(timeOut)
-    }, [])
+    /* ---------------- Header typing effect ---------------- */
 
     useEffect(() => {
-        let timeout;
-        const canEnter = introductionHeader.endsWith("about.");
-        const handleIntroduction = (event) => {
-            if (event?.key === "Enter" && canEnter) {
-                trackEnter()
-                setIntroductionHeader((prev) => prev.replace(TO_REPLACE, LOADED_DATA));
-                for (let i = 0; i < SECOND_INTRO.length; i++) {
-                    timeout = setTimeout(() => {
-                        setIntroductionBody((prev) => prev += SECOND_INTRO[i])
-                    }, i * 50)
-                }
-                document.removeEventListener('keypress', handleIntroduction)
-            }
-        }
+        const interval = setInterval(() => {
+            const nextChar = FIRST_INTRO[headerIndex.current];
 
-        document.addEventListener('keypress', handleIntroduction);
+            if (nextChar === undefined) {
+                clearInterval(interval);
+                return;
+            }
+
+            setHeader((prev) => prev + nextChar);
+            headerIndex.current += 1;
+        }, TYPING_SPEED);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const canProceed = header.endsWith("summary.");
+
+    /* ---------------- Body typing effect ---------------- */
+
+    const startBodyTyping = useCallback(() => {
+        if (hasStartedBody.current) return;
+
+        hasStartedBody.current = true;
+        trackEnter();
+
+        setHeader((prev) => prev.replace(TO_REPLACE, LOADED_DATA));
+
+        const interval = setInterval(() => {
+            const nextChar = SECOND_INTRO[bodyIndex.current];
+
+            if (nextChar === undefined) {
+                clearInterval(interval);
+                return;
+            }
+
+            setBody((prev) => prev + nextChar);
+            bodyIndex.current += 1;
+        }, TYPING_SPEED);
+    }, []);
+
+
+    /* ---------------- Keyboard listener ---------------- */
+
+    useEffect(() => {
+        if (!canProceed) return;
+
+        const handleKeyPress = (event) => {
+            if (event.key === "Enter") {
+                startBodyTyping();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyPress);
 
         return () => {
-            document.removeEventListener('keypress', handleIntroduction);
-            clearTimeout(timeout)
-        }
+            document.removeEventListener("keydown", handleKeyPress);
+        };
+    }, [canProceed, startBodyTyping]);
 
-    }, [introductionHeader]);
+    /* ---------------- Memoised API ---------------- */
 
-    return useMemo(() => ({ introductionBody, setIntroductionHeader, introductionHeader }), [introductionBody, setIntroductionHeader, introductionHeader]);
-
-}
+    return useMemo(
+        () => ({
+            introductionHeader: header,
+            introductionBody: body,
+        }),
+        [header, body]
+    );
+};
