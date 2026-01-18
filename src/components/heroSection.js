@@ -1,7 +1,7 @@
 import Header from "./header";
 
 const HERO_CONTENT = {
-    title: "Hi, I’m Olaoluwa Oke",
+    title: "Hi, I’m Osinaike Damilola",
     description:
         "Frontend Engineer specialising in building fast, accessible, and scalable web applications. I collaborate closely with designers and product teams to transform complex requirements into intuitive, high-quality user experiences.",
 };

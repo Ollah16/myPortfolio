@@ -6,7 +6,7 @@ import { FaCode } from "react-icons/fa";
 import { useThemeContext } from '../context/themeContext';
 
 const links = [{
-    to: "mailto:olaoluwa_oke@outlook.com",
+    to: "mailto:osinaike.damilola@outlook.com",
     dataName: "Email",
     iconClass: `bg-[#ffffffb3] text-[#030f1c] rounded-[50%] p-[2px]`
 },

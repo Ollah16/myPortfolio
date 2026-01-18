@@ -20,7 +20,7 @@ export const SECOND_INTRO = [
     '["4+ years building production frontend applications for consumer-facing platforms"]',
     "",
     "> self.education();",
-    '["MSc Engineering Management, De Montfort University", "B.Tech Agricultural Engineering"]',
+    '["MSc Engineering Management, De Montfort University", "B.Tech Civil Engineering"]',
     "",
     "> self.coreSkills();",
     '["TypeScript", "React", "Next.js", "Redux Toolkit", "TanStack Query", "HTML", "CSS", "Accessibility", "Performance Optimisation"]',
