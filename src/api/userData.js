@@ -1,12 +1,7 @@
 import axios from "axios";
 import { userDataAPI } from "../constants";
 
-let isDataArrived = false
-
 export const getUserData = async () => {
-
-    if (isDataArrived) return;
-
     try {
         const response = await axios.post(
             userDataAPI,
@@ -19,7 +14,7 @@ export const getUserData = async () => {
                 },
             }
         );
-        isDataArrived = true
+
         return response.data;
     } catch (error) {
         console.error("Failed to fetch user data:", error);
