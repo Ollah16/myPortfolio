@@ -5,12 +5,12 @@ import TrackPage from './trackPage';
 
 
 const ProjectPage = () => {
-    const h2 = `Project Highlights`
+    const title = `Project Highlights`
 
     return (
         <div className="flex flex-col gap-10 h-fit">
             <TrackPage page={"Projects"} />
-            <Header h2={h2} />
+            <Header title={title} />
             <Projects />
         </div>)
 }
