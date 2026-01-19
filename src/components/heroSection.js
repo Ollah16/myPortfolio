@@ -10,13 +10,15 @@ const HeroSection = () => {
 
     const { title } = useUserData();
 
-    if (!title) return
+    const placeholder = <div className="h-10 w-2/3 bg-gray-300 dark:bg-gray-700 rounded animate-pulse mb-4" />
+    const header = title ?? placeholder
 
     return (
         <section aria-label="Introduction">
-            <Header h2={title} p={HERO_CONTENT.description} />
+            <Header title={header} p={HERO_CONTENT.description} />
         </section>
     );
 };
 
 export default HeroSection;
+
