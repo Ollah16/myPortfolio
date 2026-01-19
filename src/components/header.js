@@ -1,7 +1,7 @@
 
 const Header = ({ title = null, p = null }) => {
 
-    const placeholder = <div className="h-[60px] w-2/3 bg-gray-300 dark:bg-gray-700 rounded animate-pulse mb-4" />
+    const placeholder = <div className="h-[60px] w-full bg-gray-300 dark:bg-gray-700 rounded animate-pulse mb-4" />
     const titleHolder = <h2 className='dark:text-[#548a98] text-black text-6xl font-bold'>{title}</h2>
 
     return (
