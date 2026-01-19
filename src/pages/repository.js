@@ -1,6 +1,6 @@
 import Repository from "../components/Repository";
 import Header from "../components/header";
-import TrackPage from "../analytics/trackPage";
+import TrackPage from "./trackPage";
 
 
 const RepositoryPage = () => {

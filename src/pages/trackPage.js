@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { handlePage } from './analytics'
+import { handlePage } from '../api/analytics'
 
 const TrackPage = ({ page }) => {
     const isPageTracked = useRef(false)

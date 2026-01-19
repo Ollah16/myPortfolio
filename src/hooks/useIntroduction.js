@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { handleEvent } from "../analytics/analytics";
+import { getUserData } from "../api/userData";
+import { handleEvent } from "../api/analytics";
 
 export const FIRST_INTRO = [
     "> self.learnAboutMe();",
@@ -9,33 +10,6 @@ export const FIRST_INTRO = [
 const TO_REPLACE = "Press Enter to view profile summary.";
 const LOADED_DATA = "Loading profile . . .\n\n";
 
-export const SECOND_INTRO = [
-    "> self.profile();",
-    '["Frontend Engineer focused on building fast, accessible, and scalable web applications."]',
-    "",
-    "> self.location();",
-    '["London, UK (Remote / European time zones)"]',
-    "",
-    "> self.experience();",
-    '["4+ years building production frontend applications for consumer-facing platforms"]',
-    "",
-    "> self.education();",
-    '["MSc Engineering Management, De Montfort University", "B.Tech Civil Engineering"]',
-    "",
-    "> self.coreSkills();",
-    '["TypeScript", "React", "Next.js", "Redux Toolkit", "TanStack Query", "HTML", "CSS", "Accessibility", "Performance Optimisation"]',
-    "",
-    "> self.tooling();",
-    '["Playwright", "Jest", "GitHub Actions", "CI/CD", "Vercel", "Firebase", "Node.js"]',
-    "",
-    "> self.focusAreas();",
-    '["User experience", "Frontend architecture", "Reusable component systems", "Cross-functional collaboration"]',
-    "",
-    "> self.contact();",
-    '["GitHub", "Email"]',
-].join("\n");
-
-
 const TYPING_SPEED = 50;
 
 export const useIntroduction = () => {
@@ -44,6 +18,21 @@ export const useIntroduction = () => {
     const headerIndex = useRef(0);
     const bodyIndex = useRef(0);
     const hasStartedBody = useRef(false);
+    const [secondIntroduction, setSecIntroduction] = useState("")
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await getUserData();
+                console.log(response)
+                setSecIntroduction(response.data.introduction);
+            } catch (error) {
+                console.error("Failed to load brand:", error);
+            }
+        };
+
+        fetchUserData();
+    }, []);
 
     /* ---------------- Header typing effect ---------------- */
 
@@ -76,7 +65,7 @@ export const useIntroduction = () => {
         setHeader((prev) => prev.replace(TO_REPLACE, LOADED_DATA));
 
         const interval = setInterval(() => {
-            const nextChar = SECOND_INTRO[bodyIndex.current];
+            const nextChar = secondIntroduction.join("/n")[bodyIndex.current];
 
             if (nextChar === undefined) {
                 clearInterval(interval);
@@ -86,7 +75,7 @@ export const useIntroduction = () => {
             setBody((prev) => prev + nextChar);
             bodyIndex.current += 1;
         }, TYPING_SPEED);
-    }, []);
+    }, [secondIntroduction]);
 
 
     /* ---------------- Keyboard listener ---------------- */

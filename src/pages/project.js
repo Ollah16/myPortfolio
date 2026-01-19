@@ -1,7 +1,7 @@
 
 import Projects from '../components/project';
 import Header from '../components/header';
-import TrackPage from '../analytics/trackPage';
+import TrackPage from './trackPage';
 
 
 const ProjectPage = () => {

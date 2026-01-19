@@ -7,7 +7,6 @@ import inventoryImage from '../../assets/inventorySc.png';
 import bookstoreImage from '../../assets/bookstore.png';
 import collegeImage from '../../assets/schoolapp.png';
 import invoiceImage from '../../assets/invoiceapp.png';
-import portfolioImage from '../../assets/portfolio.png';
 import oneCapImage from '../../assets/onecap.png';
 import batteryDashboardImage from '../../assets/batterydashboard.png';
 import cofounderImage from '../../assets/cofounder.png';
@@ -92,14 +91,6 @@ const PROJECTS = [
         description:
             'A gamified savings and investment platform delivering engaging, user-centric financial experiences through intuitive design and responsive frontend architecture.',
         image: oneCapImage,
-        framework: 'ReactJS',
-    },
-    {
-        name: 'Personal Portfolio',
-        url: 'https://myportfolio-8bb3f.web.app',
-        description:
-            'A personal portfolio website built with React, HTML, and CSS, showcasing projects through a component-driven architecture with a strong focus on performance and user experience.',
-        image: portfolioImage,
         framework: 'ReactJS',
     },
 ];

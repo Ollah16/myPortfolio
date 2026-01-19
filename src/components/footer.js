@@ -1,27 +1,35 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { MdOutlineMail } from "react-icons/md";
 import { FaGithubSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaCode } from "react-icons/fa";
 import { useThemeContext } from '../context/themeContext';
+import { getUserData } from '../api/userData';
 
-const links = [{
-    to: "mailto:osinaike.damilola@outlook.com",
-    dataName: "Email",
-    iconClass: `bg-[#ffffffb3] text-[#030f1c] rounded-[50%] p-[2px]`
-},
-{
-    to: "https://github.com/ollah16",
-    dataName: "GitHub",
-    iconClass: `bg-[#ffffffb3] text-[#030f1c] rounded-[50%] p-[2px]`
-}]
+
 
 
 const Footer = () => {
 
     const { pageTheme } = useThemeContext()
     const linkClass = `before:content-[attr(data-name)] before:hidden hover:before:block before:absolute before:rounded before:px-1 before:top-[-12px] md:before:top-[-10px] before:text-black before:text-xs hover:before:bg-[#626264] hover:before:text-white dark:hover:before:bg-[#ffffffb3] dark:hover:before:text-black`
-    const isEmail = (data) => data.includes("Email")
+    const isEmail = (data) => data.includes("Email");
+
+    const [footerLinks, setLinks] = useState([]);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await getUserData();
+                setLinks(response.data.links ?? []);
+            } catch (error) {
+                console.error("Failed to load brand:", error);
+            }
+        };
+
+        fetchUserData();
+    }, []);
+
 
     return (
         <footer className={'dark:bg-[#030f1c] bg-[#1a1b1b] dark:text-[#ffffffb3] m-0 w-full flex md:flex-row flex-col gap-2 md:gap-0 justify-evenly md:!p-4 p-2 items-center text-[#ffffffb3]'}>
@@ -31,15 +39,15 @@ const Footer = () => {
                 <span>Frontend Engineer</span>
             </div>
             <div className='text-[#050a0f] flex items-center justify-center gap-2 md:gap-5 relative'>
-                {links.map((d, index) => {
-                    const is_Email = isEmail(d.dataName)
+                {footerLinks.map((d, index) => {
+                    const is_Email = isEmail(d.label)
                     return (
                         <Link key={index} to={d.to}
-                            data-name={d.dataName}
+                            data-name={d.label}
                             className={linkClass}>
                             {is_Email ?
-                                <MdOutlineMail size={19} className={d.iconClass} /> :
-                                <FaGithubSquare size={19} className={d.iconClass} />}
+                                <MdOutlineMail size={19} className={`bg-[#ffffffb3] text-[#030f1c] rounded-[50%] p-[2px]`} /> :
+                                <FaGithubSquare size={19} className={`bg-[#ffffffb3] text-[#030f1c] rounded-[50%] p-[2px]`} />}
                         </Link>
                     )
                 })}
