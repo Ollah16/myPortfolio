@@ -51,7 +51,7 @@ export const useIntroduction = () => {
         setHeader((prev) => prev.replace(TO_REPLACE, LOADED_DATA));
 
         const interval = setInterval(() => {
-            const nextChar = secondIntroduction.join("/n")[bodyIndex.current];
+            const nextChar = secondIntroduction.join("\n")[bodyIndex.current];
 
             if (nextChar === undefined) {
                 clearInterval(interval);
