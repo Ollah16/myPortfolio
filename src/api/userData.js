@@ -1,7 +1,7 @@
 import axios from "axios";
 import { userDataAPI } from "../constants";
 
-const isDataArrived = false
+let isDataArrived = false
 
 export const getUserData = async () => {
 
