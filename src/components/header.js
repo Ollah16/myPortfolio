@@ -7,11 +7,7 @@ const Header = ({ title = null, p = null }) => {
     return (
         <section className="flex justify-center">
             <div className="text-center gap-4 md:w-2/4 w-3/4 flex flex-col">
-                {title ?
-                    <titleHolder />
-                    :
-                    <placeholder />
-                }
+                {title ? titleHolder : placeholder}
                 <p className="dark:text-[#ede7e7] text-[#232222] font-light text-xl">{p}</p>
             </div>
         </section >)
