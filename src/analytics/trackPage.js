@@ -1,9 +1,13 @@
-import { useEffect } from 'react'
-import { trackPage } from './analytics'
+import { useEffect, useRef } from 'react'
+import { handlePage } from './analytics'
 
 const TrackPage = ({ page }) => {
+    const isPageTracked = useRef(false)
+
     useEffect(() => {
-        trackPage(page)
+        if (isPageTracked.current) return
+        handlePage(page)
+        isPageTracked.current = true
     }, [page])
 }
 

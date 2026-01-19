@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { trackEnter } from "../analytics/analytics";
+import { handleEvent } from "../analytics/analytics";
 
 export const FIRST_INTRO = [
     "> self.learnAboutMe();",
@@ -71,7 +71,7 @@ export const useIntroduction = () => {
         if (hasStartedBody.current) return;
 
         hasStartedBody.current = true;
-        trackEnter();
+        handleEvent("Enter");
 
         setHeader((prev) => prev.replace(TO_REPLACE, LOADED_DATA));
 
