@@ -6,9 +6,13 @@ const TrackPage = ({ page }) => {
 
     useEffect(() => {
         if (isPageTracked.current) return
+
         handlePage(page)
+
         isPageTracked.current = true
     }, [page])
+
+    return null;
 }
 
 export default TrackPage
