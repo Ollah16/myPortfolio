@@ -16,7 +16,7 @@ export const useUserData = () => {
 
     useEffect(() => {
         fetchUserData()
-    })
+    }, [])
 
     return userData
 }
