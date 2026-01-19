@@ -16,6 +16,8 @@ const Footer = () => {
 
     const { links: footerLinks } = useUserData();
 
+    if (!footerLinks) return
+
     return (
         <footer className={'dark:bg-[#030f1c] bg-[#1a1b1b] dark:text-[#ffffffb3] m-0 w-full flex md:flex-row flex-col gap-2 md:gap-0 justify-evenly md:!p-4 p-2 items-center text-[#ffffffb3]'}>
             <div className='flex items-center justify-center'>
@@ -24,7 +26,7 @@ const Footer = () => {
                 <span>Frontend Engineer</span>
             </div>
             <div className='text-[#050a0f] flex items-center justify-center gap-2 md:gap-5 relative'>
-                {footerLinks.map((d, index) => {
+                {footerLinks?.map((d, index) => {
                     const is_Email = isEmail(d.label)
                     return (
                         <Link key={index} to={d.to}

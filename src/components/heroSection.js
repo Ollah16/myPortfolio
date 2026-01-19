@@ -10,6 +10,8 @@ const HeroSection = () => {
 
     const { title } = useUserData();
 
+    if (!title) return
+
     return (
         <section aria-label="Introduction">
             <Header h2={title} p={HERO_CONTENT.description} />
