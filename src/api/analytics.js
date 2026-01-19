@@ -4,14 +4,17 @@ import { eventTrackingAPI, pageTrackingAPI } from "../constants"
 let isEnterClicked = false
 
 export const handleEvent = (event) => {
+    if (process.env.NODE_ENV !== 'production') return
+
     if (isEnterClicked) return
     axios.post(eventTrackingAPI, {
         eventName: "Button_clicked",
-        buttonLabel: event
+        buttonLabel: event,
+        hostName: window.location.hostname
     },
         {
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/json",
             }
         }).then(() => {
             isEnterClicked = true
@@ -19,13 +22,16 @@ export const handleEvent = (event) => {
 }
 
 export const handlePage = (page) => {
+    if (process.env.NODE_ENV !== 'production') return
+
     axios.post(pageTrackingAPI, {
         eventName: "Page_loaded",
-        pageName: page
+        pageName: page,
+        hostName: window.location.hostname
     },
         {
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/json",
             }
         }).then(() => {
         }).catch((err) => { console.log(err) })
