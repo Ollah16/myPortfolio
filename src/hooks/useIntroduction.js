@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { getUserData } from "../api/userData";
 import { handleEvent } from "../api/analytics";
 import { useUserData } from "./useUserData";
 

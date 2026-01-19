@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import Header from "./header";
-import { getUserData } from "../api/userData";
 import { useUserData } from "../hooks/useUserData";
 
 const HERO_CONTENT = {

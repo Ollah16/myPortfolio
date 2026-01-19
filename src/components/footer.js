@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react'
 import { MdOutlineMail } from "react-icons/md";
 import { FaGithubSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaCode } from "react-icons/fa";
 import { useThemeContext } from '../context/themeContext';
-import { getUserData } from '../api/userData';
 import { useUserData } from '../hooks/useUserData';
 
 
