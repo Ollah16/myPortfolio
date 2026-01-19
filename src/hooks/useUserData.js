@@ -1,4 +1,4 @@
-const { useState } = require("react");
+const { useState, useEffect } = require("react");
 const { getUserData } = require("../api/userData")
 
 export const useUserData = () => {
