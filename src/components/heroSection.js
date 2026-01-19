@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "./header";
 import { getUserData } from "../api/userData";
+import { useUserData } from "../hooks/useUserData";
 
 const HERO_CONTENT = {
     description:
@@ -9,20 +10,7 @@ const HERO_CONTENT = {
 
 const HeroSection = () => {
 
-    const [title, setTitle] = useState("")
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await getUserData()
-                setTitle(response.data.title)
-            } catch (err) {
-                console.error("Failed to load name:", err);
-            }
-        }
-
-        fetchUserData();
-    }, [])
+    const { title } = useUserData();
 
     return (
         <section aria-label="Introduction">

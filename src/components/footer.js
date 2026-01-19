@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaCode } from "react-icons/fa";
 import { useThemeContext } from '../context/themeContext';
 import { getUserData } from '../api/userData';
+import { useUserData } from '../hooks/useUserData';
 
 
 
@@ -15,21 +16,7 @@ const Footer = () => {
     const linkClass = `before:content-[attr(data-name)] before:hidden hover:before:block before:absolute before:rounded before:px-1 before:top-[-12px] md:before:top-[-10px] before:text-black before:text-xs hover:before:bg-[#626264] hover:before:text-white dark:hover:before:bg-[#ffffffb3] dark:hover:before:text-black`
     const isEmail = (data) => data.includes("Email");
 
-    const [footerLinks, setLinks] = useState([]);
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await getUserData();
-                setLinks(response.data.links ?? []);
-            } catch (error) {
-                console.error("Failed to load brand:", error);
-            }
-        };
-
-        fetchUserData();
-    }, []);
-
+    const { links: footerLinks } = useUserData();
 
     return (
         <footer className={'dark:bg-[#030f1c] bg-[#1a1b1b] dark:text-[#ffffffb3] m-0 w-full flex md:flex-row flex-col gap-2 md:gap-0 justify-evenly md:!p-4 p-2 items-center text-[#ffffffb3]'}>

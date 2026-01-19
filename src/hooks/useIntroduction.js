@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getUserData } from "../api/userData";
 import { handleEvent } from "../api/analytics";
+import { useUserData } from "./useUserData";
 
 export const FIRST_INTRO = [
     "> self.learnAboutMe();",
@@ -18,21 +19,7 @@ export const useIntroduction = () => {
     const headerIndex = useRef(0);
     const bodyIndex = useRef(0);
     const hasStartedBody = useRef(false);
-    const [secondIntroduction, setSecIntroduction] = useState("")
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await getUserData();
-                console.log(response)
-                setSecIntroduction(response.data.introduction);
-            } catch (error) {
-                console.error("Failed to load brand:", error);
-            }
-        };
-
-        fetchUserData();
-    }, []);
+    const { introduction: secondIntroduction } = useUserData()
 
     /* ---------------- Header typing effect ---------------- */
 

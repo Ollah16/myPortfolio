@@ -1,22 +1,8 @@
-import { useEffect, useState } from "react";
-import { getUserData } from "../../api/userData"
+import { useUserData } from "../../hooks/useUserData";
 
 const NavBrand = () => {
 
-    const [brand, setBrand] = useState("");
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await getUserData();
-                setBrand(response.data.brand);
-            } catch (error) {
-                console.error("Failed to load brand:", error);
-            }
-        };
-
-        fetchUserData();
-    }, []);
+    const { brand } = useUserData();
 
     return (
         <div>
